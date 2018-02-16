@@ -43,7 +43,9 @@ void Carro:: setMarca(string marcaNueva){
 }
 
 
-
+Carro::~Carro(){
+	cout<< "Destructor:"<< endl;
+}
 
 
 

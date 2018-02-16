@@ -1,4 +1,5 @@
 #include <string>
+#include "Carro.h"
 using namespace std;
 
 #ifndef PARQUEO_H
@@ -9,9 +10,14 @@ class Parqueo{
 		// atributos
 		int cantidadPisos;
 		int capacidad;
+		int altura;
 
 	public:
-		Parqueo(int, int);
+		int n;
+		int m;
+		int z;
+		Carro**** matriz3D;
+		Parqueo(int, int, int);
 		Parqueo();
 
 		// mutadores
@@ -20,6 +26,14 @@ class Parqueo{
 
 		void setCapacidad(int);
 		int getCapacidad();
+
+		void setAltura(int);
+		int getAltura();
+
+		void setMatriz3D(Carro);
+		int getMatriz3D();
+
+		void parquearCarro(int, Carro*);
 
 	//destructor
 	~Parqueo();

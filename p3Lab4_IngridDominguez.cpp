@@ -15,6 +15,12 @@ void liberarMatrizString(string**&, int);
 //menu principal del programa.
 int menu();
 
+//crear carro
+Carro* crearCarro(int);
+
+//parquear
+void parquear(Parqueo, Carro*);
+
 int main(){
 	int personas=250;
 	int pisos =0;
@@ -24,26 +30,47 @@ int main(){
 	}
 	
 	while(personas >200 || personas <50){
-		cout <<"Ingrese cantidad personas [50,200] :  ";
+		cout <<"Ingrese cantidad personas por pisos [50,200] :  ";
 		cin>>personas;
 	}
 	
-	cout<< pisos << "" <<personas << endl;
 	
-	
-	
-	int opcion =1;
 
+	int altura = 0;
+	while(altura <= 0){
+		cout<< "Ingrese la altura maxima del edificio : "<< endl;
+		cin>> altura;
+	}
+
+	cout<< pisos << " "<< personas << " " << altura << " " << endl;
+
+	//creacio del parqueo
+	Parqueo parqueo(pisos, personas, altura);		
+	cout<< parqueo.getCantidadPisos()<< endl;	
+
+	int opcion =1;
+	int condicion = 1;
+	Carro* temporal;	
+
+	cout<< endl<<  "*********************" <<endl;
 	while (opcion>=1 && opcion<= 3){
 		opcion = menu();
 		switch(opcion){
-			case 1:{//
-				cout<<"Usted selecciono: 1"<<endl;
+			case 1:{
+				temporal = crearCarro(altura);
+				
+				cout<< "Carro Creado"<< endl;
+				condicion =2;
 				break;
 				}
 			case 2:{
 				cout<<"Usted selecciono:2 "<<endl;
-
+				if(condicion == 1){	
+					cout<< "Tiene que crear un carro! "<< endl;
+				}else{
+					parquear(parqueo, temporal);
+					condicion = 1;
+				}
 				break;
 				}
 
@@ -56,8 +83,47 @@ int main(){
 	
 	}// fin
 
-	cout<< "Salio"<< endl;
+	cout<< "Salio"<< endl; 
 	return 0;
+}
+
+
+//crear carro
+Carro* crearCarro(int alturaEdificio){
+	
+	int altura = alturaEdificio+1;
+        string color = "";
+        string marca = "";
+	
+	
+        cout<<endl << "*********************" << endl;
+        cout<< "Ingrese su color:";
+	cin >> color;
+	cout<< "Ingrese su marca: ";
+	cin >> marca;
+	
+	while(altura > alturaEdificio){	
+		cout<< "Ingrese la altura del carro NO mayor a "<< alturaEdificio  << ":";
+		cin>>  altura;
+		
+	}// fin de qhie
+	
+
+	//creamos el carro 
+	Carro* carro = new Carro(altura, color, marca);
+	return carro;
+}
+
+
+//parquear
+void parquear(Parqueo parqueo, Carro* carro){
+	cout<< "Parquear Carro" << endl;
+	int piso = 0;
+	cout<< "Ingrese el piso en que desea parquear :";
+	cin >> piso;
+
+	parqueo.parquearCarro(piso, carro);
+
 }
 
 
@@ -66,7 +132,7 @@ int menu(){
 	int opcion = 0;
 	while(opcion<=0||opcion>4){
 		cout<<"Bienvenido!! "<<endl<<"Ingrese su opcion:  "<<endl;
-		cout <<"1-"<<endl<<"2-"<<endl<<"3-"<<endl<<"4-"<<endl;
+		cout <<"1-Crear Carro"<<endl<<"2-Parquear"<<endl<<"3-Listar"<<endl<<"4-Salir"<<endl;
 		cin>>opcion;
 	}
 	return opcion;
