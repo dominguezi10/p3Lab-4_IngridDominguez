@@ -34,7 +34,7 @@ class Parqueo{
 		int getMatriz3D();
 
 		void parquearCarro(int, Carro*);
-
+		void listarParqueo();
 	//destructor
 	~Parqueo();
 };

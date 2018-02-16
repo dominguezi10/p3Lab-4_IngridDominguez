@@ -113,3 +113,23 @@ void Parqueo:: parquearCarro(int piso, Carro* carro){
 	}*/
 	cout<< "Carro Parqueado!!"<< endl;
 }
+
+
+void Parqueo:: listarParqueo(){
+	int contador = 0;	
+	for(int i =0; i<n; i++){
+		for(int j =0; j<m; j++){		
+			for(int k =0; k<z; k++){
+				if(matriz3D[i][j][k] == NULL){
+					contador++;
+				}
+			}
+		}	
+	}
+
+	cout<< "El total de parqueo desponible es :"<< contador<< endl;
+	
+}
+
+
+

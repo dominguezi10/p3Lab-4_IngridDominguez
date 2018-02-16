@@ -76,7 +76,7 @@ int main(){
 
 			case 3:{
 				cout<<"Usted selecciono: 3"<<endl;
-
+					parqueo.listarParqueo();
 				break;
 				}
 		}// fin del switch	
