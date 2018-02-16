@@ -3,9 +3,13 @@
 #include <vector>  
 using namespace std;
 
-//Prototipos de los metodos.
+//prototipos de los metodos para liberar memoria
+void liberarMatriz(int**&, int);
 
-//Menu principal del programa.
+//metodo para liberar a memoria de string
+void liberarMatrizString(string**&, int);
+
+//menu principal del programa.
 int menu();
 
 int main(){
@@ -56,3 +60,30 @@ int menu(){
 	}
 	return opcion;
 }//Fin del metodo del Menu.
+
+
+
+//liberar memoria
+void liberarMatriz(int**& matriz, int size){
+        for(int i= 0; i<size; i++){
+                delete[] matriz[i];
+                matriz[i] = NULL;
+        }
+
+        delete[] matriz;
+        matriz = NULL;
+
+        cout<< "Espacio liberado"<< endl;
+}
+
+void liberarMatrizString(string**& matriz, int size){
+        for(int i = 0; i< size; i++){
+                delete[] matriz[i];
+                matriz[i] = NULL;
+        }
+
+        delete[] matriz;
+        matriz = NULL;
+
+        cout<< "liberado memoria tablero "<< endl;
+}
