@@ -1,6 +1,9 @@
 #include <iostream>
+#include "Parqueo.h"
+#include "Carro.h"
 #include <string>
-#include <vector>  
+#include <vector> 
+#include <typeinfo>
 using namespace std;
 
 //prototipos de los metodos para liberar memoria
@@ -13,21 +16,29 @@ void liberarMatrizString(string**&, int);
 int menu();
 
 int main(){
+	int personas=250;
+	int pisos =0;
+	while(pisos <= 0){
+		cout<< "Bienvenido!! "<< endl<< "Ingrese la cantidad de pisos para el edificio : ";
+		cin>> pisos;
+	}
+	
+	while(personas >200 || personas <50){
+		cout <<"Ingrese cantidad personas [50,200] :  ";
+		cin>>personas;
+	}
+	
+	cout<< pisos << "" <<personas << endl;
+	
+	
+	
 	int opcion =1;
 
 	while (opcion>=1 && opcion<= 3){
 		opcion = menu();
 		switch(opcion){
 			case 1:{//
-				cout<<"Usted selecciono: "<<endl;
-			//	int matrix[5][5];
-				vector<string> data;
-				data.push_back("my name");
-				data.push_back("laudia");
-				data.push_back("claudia 3");
-				for(int i=0;i<data.size();i++){
-				cout <<data[i]<<endl;
-				}
+				cout<<"Usted selecciono: 1"<<endl;
 				break;
 				}
 			case 2:{

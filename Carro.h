@@ -16,17 +16,17 @@ class Carro{
 		Carro();
 
 		// mutadores
-		void setAltura();
+		void setAltura(int);
 		int getAltura();
 
-		void setColor();
-		int getColor();
+		void setColor(string);
+		string getColor();
 
-		void setMarca();
-		int getMarcar();
+		void setMarca(string);
+		string getMarca();
 
 	//destructor
-	~CARRO();
+	~Carro();
 };
 
 #endif

@@ -1,4 +1,4 @@
-#include "Parqueo.h";
+#include "Parqueo.h"
 #include <iostream>
 #include <string>
 using namespace std;
@@ -9,7 +9,7 @@ Parqueo::Parqueo(int pPisos, int pCapacidad){
 
 }
 
-Paqueo:: Parqueo(){
+Parqueo:: Parqueo(){
 	this->cantidadPisos = 2;
 	this->capacidad = 5;
 
